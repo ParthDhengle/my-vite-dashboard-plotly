@@ -1,19 +1,17 @@
-"use client"
-
-// src/components/charts/LineChart.jsx
 import { useEffect, useRef } from "react"
 import Plot from "react-plotly.js"
+import Plotly from "plotly.js/dist/plotly.min.js";
 
 function LineChart({ x, y, ySuffix = "", yRange, percentage = false }) {
   const plotRef = useRef(null)
 
   useEffect(() => {
     const handleResize = () => {
-      if (plotRef.current) {
-        plotRef.current.resizeHandler()
+      // 2. Access the DOM element via ref.current.el and use Plotly to resize it
+      if (plotRef.current && plotRef.current.el) {
+        Plotly.Plots.resize(plotRef.current.el)
       }
     }
-
     window.addEventListener("resize", handleResize)
     return () => window.removeEventListener("resize", handleResize)
   }, [])

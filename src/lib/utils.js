@@ -1,4 +1,6 @@
+import { clsx } from "clsx"
+import { twMerge } from "tailwind-merge"
+
 export function cn(...inputs) {
-  const classes = inputs.filter(Boolean).join(" ")
-  return classes
+  return twMerge(clsx(inputs))
 }
