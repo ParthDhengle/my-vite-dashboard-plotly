@@ -37,7 +37,7 @@ const TabsList = React.forwardRef(({ className, ...props }, ref) => (
 TabsList.displayName = "TabsList"
 
 const TabsTrigger = React.forwardRef(({ className, value, ...props }, ref) => {
-  const isActive = props.Value === value
+  const isActive = props.value === value
 
   return (
     <button
@@ -55,7 +55,7 @@ const TabsTrigger = React.forwardRef(({ className, value, ...props }, ref) => {
 TabsTrigger.displayName = "TabsTrigger"
 
 const TabsContent = React.forwardRef(({ className, value, ...props }, ref) => {
-  const isActive = props.Value === value
+  const isActive = props.value === value
 
   if (!isActive) return null
 
